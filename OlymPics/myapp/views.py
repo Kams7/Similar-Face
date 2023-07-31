@@ -18,7 +18,7 @@ def home(request):
     if os.path.exists(image_path) and os.path.isfile(image_path):
         image = cv2.imread(image_path, 0)
         cv2.imwrite(image_path, image)
-        cl = Clustimage(method='pca')
+    cl = Clustimage(method='pca')
 
     feature_path = os.path.join(settings.MEDIA_ROOT, 'clustimage_model')
     face_results1 = cl.extract_faces(image_path)
