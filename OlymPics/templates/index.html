@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Home | OlymPics</title>
+    </head>
+    <body class="bg-purple-500" >
+        <div class="py-8 px-8 flex justify-left bg-gray-800">
+            <h1 class="text-xl font-semibold text-purple-500" style="font-size: 25px">OlymPics</h1>
+        </div>
+
+        <div class="py-8 px-8 flex justify-center">
+            <div class="grid grid-cols-2 gap-3">
+                
+                <img src={{picture}} class="rounded-xl w-50">
+
+                <form  method="post" enctype="multipart/form-data" class="py-6 px-6 bg-purple-400 rounded-xl">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                
+                    <input type="submit" value="Generate" class="inline-block mt-2 px-3 py-2 bg-teal-500 rounded-xl hover:bg-teal-700">
+                </form>
+                
+            </div>
+        </div>
+    </body>
+</html>
+{%comment%}
+class="  text-white "
+
+{% for pic in pictures %}
+<img src={{pic.Image.url}} class="rounded-xl w-40">
+{% endfor %}
+{%endcomment%}
